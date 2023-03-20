@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { createRoot, unmountComponentAtNode } from 'react-dom/client';
 import "../css/style.css";
 import "../css/bootstrap.min.css"
@@ -6,14 +6,27 @@ import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import carouselImage1 from '../img/carousel-1.jpg';
 import carouselImage2 from '../img/carousel-2.jpg';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
-import $ from 'jquery';
+
+
+
+/* import $ from 'jquery';*/
 
 import OwlCarousel from 'react-owl-carousel';
 import '../lib/owlcarousel/assets/owl.carousel.css';
 import '../lib/owlcarousel/assets/owl.theme.default.css';
 
-
+/*function Spinner() {
+  return (
+    <div
+      id="spinner"
+      className="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
+    >
+      <div className="spinner-grow text-primary" role="status"></div>
+    </div>
+  );
+}*/
 
 function TopBar() {
   return (
@@ -36,9 +49,22 @@ function TopBar() {
   );
 }
 
+
 function Navbar() {
+  useEffect(() => {
+    $('.fixed-top').css('top', $('.top-bar').height());
+    $(window).scroll(function () {
+      if ($(this).scrollTop()) {
+        $('.fixed-top').addClass('bg-dark').css('top', 0);
+      } else {
+        $('.fixed-top').removeClass('bg-dark').css('top', $('.top-bar').height());
+      }
+    });
+  }, []); // runs only once on mount
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark fixed-top py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
+      <div className="top-bar"></div>
       <a href="index.html" className="navbar-brand ms-4 ms-lg-0">
         <h1 className="text-primary m-0">Ami Cakes</h1>
       </a>
@@ -73,23 +99,25 @@ function Navbar() {
   );
 }
 
+
 const images = [carouselImage1, carouselImage2];
 
-const options = {
-  autoplay: true,
-  autoplayTimeout: 4000,
-  loop: true,
-  responsive: {
-    0: {
-      items: 1,
-    },
-    1000: {
-      items: 1,
-    },
-  },
-};
+
 
 function Carousel() {
+ const options = {
+    autoplay: false,
+    smartSpeed: 1500,
+    loop: true,
+    nav: true,
+    dots: false,
+    items: 1,
+    navText: [
+      <FaChevronLeft />,
+      <faChevronRight />
+    ]
+  };
+
   return (
     <div className="container-fluid p-0 pb-5 wow fadeIn" data-wow-delay="0.1s">
       <OwlCarousel className="owl-theme header-carousel position-relative" {...options}>
