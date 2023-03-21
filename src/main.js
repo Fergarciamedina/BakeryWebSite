@@ -50,8 +50,8 @@
         dots: false,
         items: 1,
         navText : [
-            '<i class="bi bi-chevron-left"></i>',
-            '<i class="bi bi-chevron-right"></i>'
+            '<i classname="bi bi-chevron-left"></i>',
+            '<i classname="bi bi-chevron-right"></i>'
         ]
     });
 
