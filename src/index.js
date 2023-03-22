@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { createRoot, unmountComponentAtNode } from 'react-dom/client';
-import "../css/style.css";
-import "../css/bootstrap.min.css"
+import "./styles/css/style.css";
+import "./styles/css/bootstrap.min.css"
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import carouselImage1 from '../img/carousel-1.jpg';
-import carouselImage2 from '../img/carousel-2.jpg';
+import carouselImage1 from './assets/img/carousel-1.jpg';
+import carouselImage2 from './assets/img/carousel-2.jpg';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import '@fortawesome/fontawesome-free/css/all.css';
 
@@ -18,11 +18,11 @@ import { BiChevronLeft } from "react-icons/bi";
 /* import $ from 'jquery';*/
 
 import OwlCarousel from 'react-owl-carousel';
-import '../lib/owlcarousel/assets/owl.carousel.css';
-import '../lib/owlcarousel/assets/owl.theme.default.css';
+import './assets/lib/owlcarousel/assets/owl.carousel.css';
+import './assets/lib/owlcarousel/assets/owl.theme.default.css';
 
 
-import '../lib/animate/animate.css';
+import './assets/lib/animate/animate.css';
 
 
 /*function Spinner() {
