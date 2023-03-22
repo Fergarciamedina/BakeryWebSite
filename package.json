@@ -35,6 +35,9 @@
     "webpack-dev-server": "^4.11.1"
   },
   "scripts": {
-    "start": "webpack serve --mode development"
-  }
+    "start": "webpack serve --mode development",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "homepage": "https://fergarciamedina.github.io/"
 }
